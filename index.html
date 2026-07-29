@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>財富自我循環實戰方案</title>
+    <!-- 引入 Tailwind CSS & FontAwesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 引入 LINE LIFF SDK -->
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <style>
+        body { font-family: 'PingFang TC', sans-serif; background-color: #f3f4f6; }
+        .hero-bg { background: linear-gradient(135deg, #0A2540 0%, #1a4a7b 100%); }
+    </style>
+</head>
+<body class="text-gray-800 pb-24">
+
+    <!-- 1. 主視覺 -->
+    <header class="hero-bg text-white text-center py-12 px-4 shadow-lg rounded-b-3xl">
+        <div class="text-yellow-400 font-bold tracking-widest text-sm mb-2">不只是賣保單，而是建立長期信任</div>
+        <h1 class="text-3xl font-extrabold leading-tight mb-4">財富自我循環<br><span class="text-4xl text-yellow-400">實戰方案</span></h1>
+        <p class="text-lg opacity-90 mb-6">學會<strong class="text-yellow-300">成交</strong>的方法，培養<strong class="text-yellow-300">服務</strong>的底氣</p>
+    </header>
+
+    <!-- 2. 痛點共鳴 -->
+    <section class="py-10 px-5">
+        <h2 class="text-2xl font-bold text-center text-blue-900 mb-8">您是否也遇過這些問題？</h2>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="bg-white p-4 rounded-xl shadow-sm text-center"><i class="fas fa-question-circle text-red-400 text-3xl mb-2"></i><p class="text-sm font-bold text-gray-700">面對客戶問倒<br>說不清楚價值</p></div>
+            <div class="bg-white p-4 rounded-xl shadow-sm text-center"><i class="fas fa-chart-line text-red-400 text-3xl mb-2"></i><p class="text-sm font-bold text-gray-700">市場變化太快<br>無法即時追蹤</p></div>
+            <div class="bg-white p-4 rounded-xl shadow-sm text-center"><i class="fas fa-file-contract text-red-400 text-3xl mb-2"></i><p class="text-sm font-bold text-gray-700">投資型保單<br>考照後卻不敢賣</p></div>
+            <div class="bg-white p-4 rounded-xl shadow-sm text-center"><i class="fas fa-search-dollar text-red-400 text-3xl mb-2"></i><p class="text-sm font-bold text-gray-700">面對數千檔基金<br>不知如何挑選</p></div>
+        </div>
+    </section>
+
+    <!-- 3. 解決方案一 -->
+    <section class="bg-white py-10 px-5">
+        <h2 class="text-2xl font-bold text-blue-900 mb-2">1. 財富自我循環銷售力</h2>
+        <p class="text-yellow-500 font-bold mb-4">【投資型保單銷售秘笈 - 6小時實體課程】</p>
+        <div class="bg-gray-50 p-4 rounded-lg mb-3">
+            <h4 class="font-bold text-gray-800"><i class="fas fa-cogs text-blue-900 mr-2"></i>四大核心策略</h4>
+            <p class="text-sm text-gray-600 mt-1">挑選基金建立水庫、累積期永動機、創富期印鈔機、活化期雙壓器。</p>
+        </div>
+    </section>
+
+    <!-- 4. 解決方案二 -->
+    <section class="py-10 px-5 bg-gray-50">
+        <h2 class="text-2xl font-bold text-green-700 mb-2">2. 基金管理服務力</h2>
+        <p class="text-green-600 font-bold mb-4">【VIS 視覺資訊系統 - 一年進階會員】</p>
+        <div class="bg-white p-4 rounded-lg border-l-4 border-green-500 shadow-sm mb-3">
+            <h4 class="font-bold text-gray-800"><i class="fas fa-globe text-green-500 mr-2"></i>財經資訊整合</h4>
+            <p class="text-sm text-gray-600 mt-1">每日快速掌握總體經濟、通膨預期與貨幣政策方向。</p>
+        </div>
+    </section>
+
+    <!-- 5. 報名與授權區塊 -->
+    <section id="registration-form" class="py-10 px-5">
+        <div class="bg-white rounded-2xl shadow-xl p-6 border-t-4 border-yellow-400">
+            
+            <!-- LIFF 使用者預覽 -->
+            <div id="profileBox" class="hidden flex items-center gap-4 bg-gray-50 p-4 rounded-xl mb-6">
+                <img id="profileImage" src="" alt="頭像" class="w-12 h-12 rounded-full border-2 border-yellow-400">
+                <div>
+                    <p class="text-xs text-gray-500">目前綁定 LINE 帳號</p>
+                    <p id="profileName" class="font-bold text-blue-900"></p>
+                </div>
+            </div>
+
+            <!-- 步驟一：獨立的授權同意頁面 -->
+            <div id="step-pdpa">
+                <h2 class="text-xl font-bold text-blue-900 mb-4 border-b pb-2">個人資料保護法授權同意</h2>
+                <div class="text-xs text-gray-600 space-y-2 h-40 overflow-y-auto bg-gray-50 p-3 rounded mb-4">
+                    <p>為辦理課程報名，本單位依據《個人資料保護法》告知下列事項：</p>
+                    <ul class="list-disc pl-4 mt-2">
+                        <li>蒐集目的：辦理課程報名、聯繫與相關客戶服務。</li>
+                        <li>蒐集類別：姓名、電話、電子信箱、LINE 帳號識別碼等。</li>
+                        <li>我們將保護您的個人資料安全，且不會移作他用。</li>
+                    </ul>
+                </div>
+                <label class="flex items-center gap-2 mb-5 cursor-pointer">
+                    <input type="checkbox" id="agreeCheckbox" class="w-5 h-5 text-blue-600">
+                    <span class="text-sm font-bold">我已詳閱並同意上述個資聲明。</span>
+                </label>
+                <button type="button" id="nextStepBtn" disabled class="w-full bg-gray-300 text-white font-bold py-4 rounded-xl transition-colors">
+                    同意並進入報名表
+                </button>
+            </div>
+
+            <!-- 步驟二：報名表單 -->
+            <form id="courseForm" class="hidden space-y-4">
+                <h2 class="text-xl font-bold text-blue-900 mb-4 border-b pb-2">填寫報名資料</h2>
+                
+                <div><label class="block text-sm font-bold mb-1">公司名稱 (選填)</label><input type="text" id="company" class="w-full p-3 bg-gray-50 border rounded-lg"></div>
+                <div><label class="block text-sm font-bold mb-1">單位代號 (選填)</label><input type="text" id="unitCode" class="w-full p-3 bg-gray-50 border rounded-lg"></div>
+                <div><label class="block text-sm font-bold mb-1">單位名稱 (選填)</label><input type="text" id="unitName" class="w-full p-3 bg-gray-50 border rounded-lg"></div>
+                
+                <div><label class="block text-sm font-bold mb-1">真實姓名 <span class="text-red-500">*</span></label><input type="text" id="name" required class="w-full p-3 bg-gray-50 border rounded-lg"></div>
+                <div><label class="block text-sm font-bold mb-1">聯絡電話 <span class="text-red-500">*</span></label><input type="tel" id="phone" placeholder="例如: 0912345678" required class="w-full p-3 bg-gray-50 border rounded-lg"></div>
+                <div><label class="block text-sm font-bold mb-1">電子信箱 <span class="text-red-500">*</span></label><input type="email" id="email" required class="w-full p-3 bg-gray-50 border rounded-lg"></div>
+                
+                <button type="submit" id="submitBtn" class="w-full bg-blue-900 hover:bg-blue-800 text-white font-bold text-lg py-4 rounded-xl mt-4">
+                    確認送出
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- JavaScript 核心邏輯 -->
+    <script>
+        // 【重要：請填寫您專屬的設定】
+        const MY_LIFF_ID = "2010369571-TdDIfGeN"; // 例如: 2010369571-TdDIfGeN
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbwpNYhthXRH914ign0uFpmrHRiuxwZe6ZxC_cxEntUWHI14E6GqG1CqkpYTarZZJc_7/exec"; 
+
+        window.userLineId = "未取得";
+
+        // 1. 初始化 LIFF 授權 (詢問讀取個人檔案)
+        async function initializeLiff() {
+            try {
+                await liff.init({ liffId: MY_LIFF_ID });
+                if (liff.isLoggedIn()) {
+                    const profile = await liff.getProfile();
+                    window.userLineId = profile.userId;
+                    
+                    // 顯示頭像與暱稱
+                    document.getElementById('profileBox').classList.remove('hidden');
+                    document.getElementById('profileImage').src = profile.pictureUrl || 'https://via.placeholder.com/150';
+                    document.getElementById('profileName').textContent = profile.displayName;
+                    document.getElementById('name').value = profile.displayName; // 預填姓名
+                } else {
+                    liff.login(); // 若未登入，強制跳轉 LINE 登入授權
+                }
+            } catch (err) {
+                alert("LINE 授權失敗，真實錯誤原因：" + err.message);
+            }
+        }
+
+        // 2. 授權頁面切換邏輯
+        const agreeCheckbox = document.getElementById('agreeCheckbox');
+        const nextStepBtn = document.getElementById('nextStepBtn');
+        
+        agreeCheckbox.addEventListener('change', function() {
+            nextStepBtn.disabled = !this.checked;
+            if(this.checked) {
+                nextStepBtn.classList.replace('bg-gray-300', 'bg-blue-600');
+            } else {
+                nextStepBtn.classList.replace('bg-blue-600', 'bg-gray-300');
+            }
+        });
+
+        nextStepBtn.onclick = () => {
+            document.getElementById('step-pdpa').classList.add('hidden');
+            document.getElementById('courseForm').classList.remove('hidden');
+        };
+
+        // 3. 表單送出與嚴格格式限制
+        document.getElementById('courseForm').onsubmit = async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            
+            const data = {
+                lineId: window.userLineId,
+                company: document.getElementById('company').value.trim(),
+                unitCode: document.getElementById('unitCode').value.trim(),
+                unitName: document.getElementById('unitName').value.trim(),
+                name: document.getElementById('name').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                email: document.getElementById('email').value.trim()
+            };
+
+            // 格式限制 (系統說出真正錯誤原因)
+            if (!/^[\u4E00-\u9FA5]+$/.test(data.name)) {
+                return alert("【格式錯誤】姓名只能輸入「純中文」，請檢查是否有空白或英文。");
+            }
+            if (!/^\d{10}$/.test(data.phone)) {
+                return alert("【格式錯誤】手機號碼必須剛好是「10碼數字」，例如 0912345678。");
+            }
+            if (!data.email.includes('@')) {
+                return alert("【格式錯誤】Email 缺少 '@' 符號，請輸入完整的電子信箱格式。");
+            }
+
+            btn.disabled = true;
+            btn.textContent = "資料傳送中，請稍候...";
+
+            try {
+                // 發送至 Google 雲端硬碟
+                await fetch(GAS_URL, {
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify(data)
+                });
+                
+                alert("🎉 報名成功！我們已收到您的資料。");
+                document.getElementById('courseForm').reset();
+                
+            } catch (error) {
+                // 如果網路斷線或 GAS 網址錯誤
+                alert("【連線失敗】真實錯誤原因：" + error.message + "\n請檢查網路連線或稍後再試。");
+            } finally {
+                btn.disabled = false;
+                btn.textContent = "確認送出";
+            }
+        };
+
+        // 載入時啟動
+        window.onload = initializeLiff;
+    </script>
+</body>
+</html>
