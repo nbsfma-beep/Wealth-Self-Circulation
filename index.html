@@ -4,25 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>財富自我循環實戰方案</title>
-    <!-- 引入 Tailwind CSS & FontAwesome -->
+    <!-- 引入 Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 FontAwesome 圖示 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- 引入 LINE LIFF SDK -->
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-blue': '#0A2540',
+                        'brand-gold': '#F5A623',
+                        'brand-light': '#F8FAFC'
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        body { font-family: 'PingFang TC', sans-serif; background-color: #f3f4f6; }
-        .hero-bg { background: linear-gradient(135deg, #0A2540 0%, #1a4a7b 100%); }
+        body { font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif; background-color: #f3f4f6; }
+        .hero-bg {
+            background: linear-gradient(135deg, #0A2540 0%, #1a4a7b 100%);
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: #F5A623;
+            margin: 12px auto 0;
+            border-radius: 2px;
+        }
+        ::-webkit-scrollbar { display: none; }
     </style>
 </head>
-<body class="text-gray-800 pb-24">
 
-    <!-- 1. 主視覺 -->
+<body class="bg-gray-100 pb-24">
     <header class="hero-bg text-white text-center py-12 px-4 shadow-lg rounded-b-3xl">
-        <div class="text-yellow-400 font-bold tracking-widest text-sm mb-2">不只是賣保單，而是建立長期信任</div>
-        <h1 class="text-3xl font-extrabold leading-tight mb-4">財富自我循環<br><span class="text-4xl text-yellow-400">實戰方案</span></h1>
+        <div class="text-brand-gold font-bold tracking-widest text-sm mb-2">不只是賣保單，而是建立長期信任</div>
+        <h1 class="text-3xl font-extrabold leading-tight mb-4">財富自我循環<br><span class="text-4xl text-brand-gold">實戰方案</span></h1>
         <p class="text-lg opacity-90 mb-6">學會<strong class="text-yellow-300">成交</strong>的方法，培養<strong class="text-yellow-300">服務</strong>的底氣</p>
+        <div class="inline-block bg-white text-brand-blue font-bold py-2 px-6 rounded-full shadow-md">
+            一套方法 ＋ 一個系統 ＝ 持續成交
+        </div>
     </header>
 
+    <div class="w-full max-w-5xl mx-auto p-4 sm:p-6">
+    
     <!-- 2. 痛點共鳴 -->
     <section class="py-10 px-5">
         <h2 class="text-2xl font-bold text-center text-blue-900 mb-8">您是否也遇過這些問題？</h2>
@@ -53,6 +84,13 @@
             <p class="text-sm text-gray-600 mt-1">每日快速掌握總體經濟、通膨預期與貨幣政策方向。</p>
         </div>
     </section>
+
+        <!-- 課程說明圖片區塊 -->
+        <div class="mb-6 rounded-2xl shadow-xl overflow-hidden border-4 border-white">
+            <img src="https://i.postimg.cc/htKjBM0F/course-info.png" alt="財富自我循環實戰方案說明" class="w-full h-auto block">
+        </div>
+        
+        <div class="bg-white p-6 sm:p-10 rounded-2xl shadow-xl border-t-4 border-brand-gold relative overflow-hidden">
 
     <!-- 5. 報名與授權區塊 -->
     <section id="registration-form" class="py-10 px-5">
