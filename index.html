@@ -245,7 +245,11 @@
                     document.getElementById('profileBox').classList.remove('hidden');
                     document.getElementById('profileImage').src = profile.pictureUrl || 'https://via.placeholder.com/150';
                     document.getElementById('profileName').textContent = profile.displayName;
-                    document.getElementById('name').value = profile.displayName; 
+                    document.getElementById('name').value = profile.displayName;
+
+                    // 🌟 關鍵修正：若已登入（或剛從 LINE 授權跳回），直接略過個資同意，一步到位進入表單！
+                    stepPdpa.classList.add('hidden');
+                    form.classList.remove('hidden');
                 }
             } catch (err) {
                 console.warn("LIFF 背景初始化提示:", err.message);
