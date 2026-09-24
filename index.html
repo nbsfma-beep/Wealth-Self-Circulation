@@ -133,8 +133,16 @@
                         <textarea id="question" rows="3" placeholder="請簡述您的期待或遇到的問題" class="w-full p-3 bg-gray-50 border rounded-lg focus:ring-2 focus:ring-brand-gold"></textarea>
                     </div>
 
-                    <!-- 👇 新增：上課區域與日期連動選單 👇 -->
+                    <!-- 👇 新增：會員身分 ＆ 上課區域與日期連動選單 👇 -->
                     <div class="border-t-2 border-gray-100 pt-4 mt-4">
+                        <!-- 會員身分 -->
+                        <label class="block text-sm font-bold text-brand-blue mb-1">會員身分 <span class="text-red-500">*</span></label>
+                        <select id="memberStatus" required class="w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-gold mb-4 text-gray-700 font-bold">
+                            <option value="">請選擇會員身分</option>
+                            <option value="新會員首次報名">新會員首次報名</option>
+                            <option value="進階會員複訓">進階會員複訓</option>
+                        </select>
+
                         <label class="block text-sm font-bold text-brand-blue mb-1">上課區域 <span class="text-red-500">*</span></label>
                         <select id="region" required class="w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-gold mb-4 text-gray-700 font-bold">
                             <option value="">請選擇上課區域</option>
@@ -165,6 +173,7 @@
                         <p><span class="text-gray-500 w-24 inline-block">聯絡電話：</span><strong id="confirm-phone" class="text-brand-blue text-base"></strong></p>
                         <p><span class="text-gray-500 w-24 inline-block">電子信箱：</span><strong id="confirm-email" class="text-brand-blue text-base"></strong></p>
                         <div class="border-t border-gray-200 pt-2 mt-2">
+                            <p><span class="text-gray-500 w-24 inline-block">會員身分：</span><strong id="confirm-memberStatus" class="text-brand-gold text-base"></strong></p>
                             <p><span class="text-gray-500 w-24 inline-block">上課區域：</span><strong id="confirm-region" class="text-brand-gold text-base"></strong></p>
                             <p><span class="text-gray-500 w-24 inline-block">上課日期：</span><strong id="confirm-date" class="text-brand-gold text-base"></strong></p>
                         </div>
@@ -195,7 +204,6 @@
 
     <!-- JavaScript 核心邏輯 -->
     <script>
-        // 👇 🚨 請填入您的 LIFF ID 與 Google Apps Script URL
         const MY_LIFF_ID = "2010369571-TdDIfGeN"; 
         const GAS_URL = "https://script.google.com/macros/s/AKfycbwpNYhthXRH914ign0uFpmrHRiuxwZe6ZxC_cxEntUWHI14E6GqG1CqkpYTarZZJc_7/exec"; 
 
@@ -217,9 +225,9 @@
             const regionSelect = document.getElementById('region');
             const dateSelect = document.getElementById('date');
             const dateOptions = {
-                '台北': ['2026/10/01(四)', '2026/11/03(二)', '2026/12/01(二)'],
-                '台中': ['2026/10/06(二)', '2026/11/05(四)', '2026/12/03(四)'],
-                '高雄': ['2026/10/08(四)', '2026/11/12(四)', '2026/12/08(二)']
+                '台北': ['2026/10/13(二)', '2026/11/03(二)', '2026/12/01(二)'],
+                '台中': ['2026/11/05(四)', '2026/12/03(四)'],
+                '高雄': ['2026/10/20(二)', '2026/11/12(四)', '2026/12/08(二)']
             };
             regionSelect.addEventListener('change', (e) => {
                 const region = e.target.value;
@@ -247,7 +255,6 @@
                     document.getElementById('profileName').textContent = profile.displayName;
                     document.getElementById('name').value = profile.displayName;
 
-                    // 🌟 關鍵修正：若已登入（或剛從 LINE 授權跳回），直接略過個資同意，一步到位進入表單！
                     stepPdpa.classList.add('hidden');
                     form.classList.remove('hidden');
                 }
@@ -269,13 +276,11 @@
             });
 
             nextStepBtn.addEventListener('click', async () => {
-                // 如果背景已經抓到 LineID，直接進入表單
                 if (window.userLineId && window.userLineId !== "未取得") {
                     stepPdpa.classList.add('hidden');
                     form.classList.remove('hidden');
                     return;
                 }
-                // 若尚未登入，真正觸發 LINE 登入授權
                 if (!liff.isLoggedIn()) {
                     liff.login();
                 } else {
@@ -297,14 +302,16 @@
                     phone: document.getElementById('phone').value.trim(),
                     email: document.getElementById('email').value.trim(),
                     question: document.getElementById('question').value.trim(),
+                    memberStatus: document.getElementById('memberStatus').value,
                     region: document.getElementById('region').value,
                     date: document.getElementById('date').value
                 };
 
                 // 嚴格格式驗證
                 if (!/^[\u4E00-\u9FA5]+$/.test(data.name)) return alert("【格式錯誤】姓名只能輸入「純中文」，不可包含英文、數字或空白。");
-                if (!/^\d{10}$/.test(data.phone)) return alert("【格式錯誤】手機號碼必須為剛好 10 碼的數字 (例如: 0912345678)。");
+                if (!/^\d{10}$/.test(phone)) return alert("【格式錯誤】手機號碼必須為剛好 10 碼的數字 (例如: 0912345678)。");
                 if (!data.email.includes('@')) return alert("【格式錯誤】電子信箱必須包含 @ 符號。");
+                if (!data.memberStatus) return alert("【資料不全】請選擇「會員身分」。");
                 if (!data.region || !data.date) return alert("【資料不全】請確實選擇「上課區域」與「上課日期」。");
 
                 finalDataToSubmit = data;
@@ -316,6 +323,7 @@
                 document.getElementById('confirm-name').textContent = data.name;
                 document.getElementById('confirm-phone').textContent = data.phone;
                 document.getElementById('confirm-email').textContent = data.email;
+                document.getElementById('confirm-memberStatus').textContent = data.memberStatus;
                 document.getElementById('confirm-region').textContent = data.region;
                 document.getElementById('confirm-date').textContent = data.date;
                 document.getElementById('confirm-question').textContent = data.question || "(未填寫)";
@@ -348,7 +356,8 @@
                     loadingOverlay.classList.add('hidden');
                     loadingOverlay.classList.remove('flex');
                     
-                    alert("🎉 報名成功！我們已收到您的資料。");
+                    // 🌟 依需求更新彈出提醒字串
+                    alert("報名成功！我們已收到您的資料。\n請留意VIS服務中心，發送後續的繳費及課程通知。");
                     
                     // 重置流程
                     form.reset();
@@ -361,7 +370,6 @@
                 } catch (error) {
                     loadingOverlay.classList.add('hidden');
                     loadingOverlay.classList.remove('flex');
-                    // 顯示真正的錯誤原因
                     alert("【系統傳送失敗】原因：" + error.message + "\n請確認網路連線或稍後再試。");
                 } finally {
                     finalSubmitBtn.disabled = false;
