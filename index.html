@@ -309,7 +309,19 @@
 
                 // 嚴格格式驗證
                 if (!/^[\u4E00-\u9FA5]+$/.test(data.name)) return alert("【格式錯誤】姓名只能輸入「純中文」，不可包含英文、數字或空白。");
-                if (!/^\d{10}$/.test(phone)) return alert("【格式錯誤】手機號碼必須為剛好 10 碼的數字 (例如: 0912345678)。");
+                // 1. 取得輸入值並將全形數字轉為半形、移除所有空白與連字號
+let rawPhone = document.getElementById('phone').value.trim();
+// 全形轉半形
+rawPhone = rawPhone.replace(/[\uff10-\uff19]/g, function(ch) {
+    return String.fromCharCode(ch.charCodeAt(0) - 0xfee0);
+});
+// 移除所有橫線、括號與空白
+const phone = rawPhone.replace(/[\s\-\(\)]/g, '');
+
+// 2. 嚴格驗證是否為 09 開頭的 10 碼數字
+if (!/^09\d{8}$/.test(phone)) {
+    return alert("【格式錯誤】手機號碼必須為剛好 10 碼數字且為 09 開頭 (例如: 0912345678)。");
+}
                 if (!data.email.includes('@')) return alert("【格式錯誤】電子信箱必須包含 @ 符號。");
                 if (!data.memberStatus) return alert("【資料不全】請選擇「會員身分」。");
                 if (!data.region || !data.date) return alert("【資料不全】請確實選擇「上課區域」與「上課日期」。");
