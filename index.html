@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>財富自我循環實戰專案</title>
+    <title>財富自我循環實戰方案</title>
     <!-- 引入 Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- 引入 FontAwesome 圖示 -->
@@ -31,14 +31,16 @@
             content: ''; display: block; width: 50px; height: 4px;
             background-color: #F5A623; margin: 12px auto 0; border-radius: 2px;
         }
-        ::-webkit-scrollbar { display: none; }
+        /* 隱藏滾動條但保持滑動功能 */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 
 <body class="bg-gray-100 pb-24">
     <header class="hero-bg text-white text-center py-12 px-4 shadow-lg rounded-b-3xl">
         <div class="text-brand-gold font-bold tracking-widest text-sm mb-2">不只是賣保單，而是建立長期信任</div>
-        <h1 class="text-3xl font-extrabold leading-tight mb-4">財富自我循環<br><span class="text-4xl text-brand-gold">實戰專案</span></h1>
+        <h1 class="text-3xl font-extrabold leading-tight mb-4">財富自我循環<br><span class="text-4xl text-brand-gold">實戰方案</span></h1>
         <p class="text-lg opacity-90 mb-6">學會<strong class="text-yellow-300">成交</strong>的方法，培養<strong class="text-yellow-300">服務</strong>的底氣</p>
         <div class="inline-block bg-white text-brand-blue font-bold py-2 px-6 rounded-full shadow-md">一套方法 ＋ 一個系統 ＝ 持續成交</div>
     </header>
@@ -46,7 +48,7 @@
     <div class="w-full max-w-5xl mx-auto p-4 sm:p-6 space-y-8">
     
         <!-- 痛點共鳴 -->
-        <section class="py-6 px-2 sm:px-5">
+        <section class="py-4 px-2 sm:px-5">
             <h2 class="text-2xl font-bold text-center text-blue-900 mb-8 section-title">您是否也遇過這些問題？</h2>
             <div class="grid grid-cols-2 gap-4">
                 <div class="bg-white p-5 rounded-2xl shadow-sm text-center border border-gray-100"><i class="fas fa-question-circle text-red-400 text-3xl mb-2"></i><p class="text-sm font-bold text-gray-700">面對客戶問倒<br>說不清楚價值</p></div>
@@ -56,12 +58,14 @@
             </div>
         </section>
 
-        <!-- 解決方案一：財富自我循環銷售力 -->
+        <!-- 🌟 解決方案一 (帶圓圈數字 ①，拿掉 SOLUTION) 🌟 -->
         <section class="bg-white p-6 sm:p-8 rounded-2xl shadow-md border-t-4 border-brand-gold space-y-6">
             <div class="border-b pb-4">
-                <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full uppercase">Solution 01</span>
-                <h2 class="text-2xl font-extrabold text-blue-900 mt-2">解決方案一：財富自我循環銷售力</h2>
-                <p class="text-brand-gold font-bold text-base mt-1">【投資型保單銷售秘笈 - 6小時實體課程】</p>
+                <h2 class="text-2xl font-extrabold text-blue-900 flex items-center gap-2">
+                    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-brand-gold text-brand-blue text-lg font-black shadow-sm">1</span>
+                    <span>解決方案一：財富自我循環銷售力</span>
+                </h2>
+                <p class="text-brand-gold font-bold text-base mt-2">【投資型保單銷售秘笈 - 6小時實體課程】</p>
                 <p class="text-gray-600 text-sm mt-1">從底層邏輯到成交話術，建立一套可以複製的標準化銷售流程。</p>
             </div>
 
@@ -99,12 +103,14 @@
             </div>
         </section>
 
-        <!-- 解決方案二：基金管理服務力 -->
+        <!-- 🌟 解決方案二 (帶圓圈數字 ②，拿掉 SOLUTION) 🌟 -->
         <section class="bg-white p-6 sm:p-8 rounded-2xl shadow-md border-t-4 border-green-600 space-y-6">
             <div class="border-b pb-4">
-                <span class="bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full uppercase">Solution 02</span>
-                <h2 class="text-2xl font-extrabold text-blue-900 mt-2">解決方案二：基金管理服務力</h2>
-                <p class="text-green-600 font-bold text-base mt-1">【VIS 視覺資訊系統 - 一年進階會員資格】</p>
+                <h2 class="text-2xl font-extrabold text-blue-900 flex items-center gap-2">
+                    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-green-600 text-white text-lg font-black shadow-sm">2</span>
+                    <span>解決方案二：基金管理服務力</span>
+                </h2>
+                <p class="text-green-600 font-bold text-base mt-2">【VIS 視覺資訊系統 - 一年進階會員資格】</p>
                 <p class="text-gray-600 text-sm mt-1">將繁雜數據轉化為直覺圖表，讓服務客戶變得輕鬆、專業、有說服力。</p>
             </div>
 
@@ -133,33 +139,45 @@
             </div>
         </section>
 
-        <!-- 課程說明圖片區塊 (完整 8 張圖片) -->
-        <section class="space-y-4">
-            <h3 class="text-xl font-bold text-center text-blue-900 section-title mb-6">實戰方案完整課綱與系統介紹</h3>
-            <div class="space-y-4">
-                <div class="rounded-2xl shadow-md overflow-hidden border-2 border-white bg-white">
-                    <img src="https://fma1.fma.tw/FMA1/event/wealthSelfCircular/img/dm/01.jpg" alt="課程說明 1" class="w-full h-auto block" loading="lazy">
+        <!-- 🌟 8 張課程說明圖片：橫向輪播滑動區塊 (無多餘標題文字) 🌟 -->
+        <section class="relative">
+            <div class="flex items-center justify-between text-xs text-gray-500 font-bold mb-2 px-1">
+                <span><i class="fas fa-images mr-1 text-brand-gold"></i> 課程圖文簡介 (左右滑動觀看)</span>
+                <span class="text-brand-blue font-bold">8 張精華內容 ➔</span>
+            </div>
+            <!-- 橫向滑動容器 -->
+            <div class="flex overflow-x-auto space-x-4 pb-4 pt-1 px-1 no-scrollbar snap-x snap-mandatory" style="-webkit-overflow-scrolling: touch;">
+                <!-- 圖片 01 -->
+                <div class="flex-shrink-0 w-[85%] sm:w-[48%] md:w-[32%] snap-center rounded-2xl shadow-lg overflow-hidden border-2 border-white bg-white">
+                    <img src="https://images.weserv.nl/?url=https://fma1.fma.tw/FMA1/event/wealthSelfCircular/img/dm/01.jpg" alt="課程說明 01" class="w-full h-auto block" loading="lazy">
                 </div>
-                <div class="rounded-2xl shadow-md overflow-hidden border-2 border-white bg-white">
-                    <img src="https://fma1.fma.tw/FMA1/event/wealthSelfCircular/img/dm/02.jpg" alt="課程說明 2" class="w-full h-auto block" loading="lazy">
+                <!-- 圖片 02 -->
+                <div class="flex-shrink-0 w-[85%] sm:w-[48%] md:w-[32%] snap-center rounded-2xl shadow-lg overflow-hidden border-2 border-white bg-white">
+                    <img src="https://images.weserv.nl/?url=https://fma1.fma.tw/FMA1/event/wealthSelfCircular/img/dm/02.jpg" alt="課程說明 02" class="w-full h-auto block" loading="lazy">
                 </div>
-                <div class="rounded-2xl shadow-md overflow-hidden border-2 border-white bg-white">
-                    <img src="https://fma1.fma.tw/FMA1/event/wealthSelfCircular/img/dm/03.jpg" alt="課程說明 3" class="w-full h-auto block" loading="lazy">
+                <!-- 圖片 03 -->
+                <div class="flex-shrink-0 w-[85%] sm:w-[48%] md:w-[32%] snap-center rounded-2xl shadow-lg overflow-hidden border-2 border-white bg-white">
+                    <img src="https://images.weserv.nl/?url=https://fma1.fma.tw/FMA1/event/wealthSelfCircular/img/dm/03.jpg" alt="課程說明 03" class="w-full h-auto block" loading="lazy">
                 </div>
-                <div class="rounded-2xl shadow-md overflow-hidden border-2 border-white bg-white">
-                    <img src="https://fma1.fma.tw/FMA1/event/wealthSelfCircular/img/dm/04.jpg" alt="課程說明 4" class="w-full h-auto block" loading="lazy">
+                <!-- 圖片 04 -->
+                <div class="flex-shrink-0 w-[85%] sm:w-[48%] md:w-[32%] snap-center rounded-2xl shadow-lg overflow-hidden border-2 border-white bg-white">
+                    <img src="https://images.weserv.nl/?url=https://fma1.fma.tw/FMA1/event/wealthSelfCircular/img/dm/04.jpg" alt="課程說明 04" class="w-full h-auto block" loading="lazy">
                 </div>
-                <div class="rounded-2xl shadow-md overflow-hidden border-2 border-white bg-white">
-                    <img src="https://fma1.fma.tw/FMA1/event/wealthSelfCircular/img/dm/05.jpg" alt="課程說明 5" class="w-full h-auto block" loading="lazy">
+                <!-- 圖片 05 -->
+                <div class="flex-shrink-0 w-[85%] sm:w-[48%] md:w-[32%] snap-center rounded-2xl shadow-lg overflow-hidden border-2 border-white bg-white">
+                    <img src="https://images.weserv.nl/?url=https://fma1.fma.tw/FMA1/event/wealthSelfCircular/img/dm/05.jpg" alt="課程說明 05" class="w-full h-auto block" loading="lazy">
                 </div>
-                <div class="rounded-2xl shadow-md overflow-hidden border-2 border-white bg-white">
-                    <img src="https://fma1.fma.tw/FMA1/event/wealthSelfCircular/img/dm/06.jpg" alt="課程說明 6" class="w-full h-auto block" loading="lazy">
+                <!-- 圖片 06 -->
+                <div class="flex-shrink-0 w-[85%] sm:w-[48%] md:w-[32%] snap-center rounded-2xl shadow-lg overflow-hidden border-2 border-white bg-white">
+                    <img src="https://images.weserv.nl/?url=https://fma1.fma.tw/FMA1/event/wealthSelfCircular/img/dm/06.jpg" alt="課程說明 06" class="w-full h-auto block" loading="lazy">
                 </div>
-                <div class="rounded-2xl shadow-md overflow-hidden border-2 border-white bg-white">
-                    <img src="https://fma1.fma.tw/FMA1/event/wealthSelfCircular/img/dm/07.jpg" alt="課程說明 7" class="w-full h-auto block" loading="lazy">
+                <!-- 圖片 07 -->
+                <div class="flex-shrink-0 w-[85%] sm:w-[48%] md:w-[32%] snap-center rounded-2xl shadow-lg overflow-hidden border-2 border-white bg-white">
+                    <img src="https://images.weserv.nl/?url=https://fma1.fma.tw/FMA1/event/wealthSelfCircular/img/dm/07.jpg" alt="課程說明 07" class="w-full h-auto block" loading="lazy">
                 </div>
-                <div class="rounded-2xl shadow-md overflow-hidden border-2 border-white bg-white">
-                    <img src="https://fma1.fma.tw/FMA1/event/wealthSelfCircular/img/dm/08.jpg" alt="課程說明 8" class="w-full h-auto block" loading="lazy">
+                <!-- 圖片 08 -->
+                <div class="flex-shrink-0 w-[85%] sm:w-[48%] md:w-[32%] snap-center rounded-2xl shadow-lg overflow-hidden border-2 border-white bg-white">
+                    <img src="https://images.weserv.nl/?url=https://fma1.fma.tw/FMA1/event/wealthSelfCircular/img/dm/08.jpg" alt="課程說明 08" class="w-full h-auto block" loading="lazy">
                 </div>
             </div>
         </section>
@@ -177,7 +195,7 @@
                     </div>
                 </div>
 
-                <!-- 🌟 步驟一：獨立的授權同意頁面 🌟 -->
+                <!-- 步驟一：獨立的授權同意頁面 -->
                 <div id="step-pdpa" class="space-y-4">
                     <h2 class="text-xl font-bold text-brand-blue mb-4 border-b pb-2">
                         <i class="fas fa-shield-alt mr-2 text-brand-gold"></i>個人資料保護法授權同意
@@ -199,7 +217,7 @@
                     </button>
                 </div>
 
-                <!-- 🌟 步驟二：報名表單 🌟 -->
+                <!-- 步驟二：報名表單 -->
                 <form id="courseForm" class="hidden space-y-5">
                     <h2 class="text-xl font-bold text-brand-blue mb-4 border-b pb-2">填寫報名資料</h2>
                     
@@ -212,7 +230,7 @@
                     <div><label class="block text-sm font-bold text-gray-700 mb-1">電子信箱 <span class="text-red-500">*</span></label><input type="email" id="email" required placeholder="請輸入聯絡信箱" class="w-full p-3 bg-gray-50 border rounded-lg focus:ring-2 focus:ring-brand-gold"></div>
                     <div>
                         <label class="block text-sm font-bold text-gray-700 mb-1">希望這堂課，能為您解決什麼問題？(選填)</label>
-                        <textarea id="question" rows="3" placeholder="請簡述您的期待或遇到的問題" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-gold"></textarea>
+                        <textarea id="question" rows="3" placeholder="請簡述您的期待或遇到的問題" class="w-full p-3 bg-gray-50 border rounded-lg focus:ring-2 focus:ring-brand-gold"></textarea>
                     </div>
 
                     <!-- 區域、日期與上課時間 -->
@@ -268,7 +286,7 @@
                     </button>
                 </form>
 
-                <!-- 🌟 步驟三：資料確認區塊 (預設隱藏) 🌟 -->
+                <!-- 步驟三：資料確認區塊 -->
                 <div id="step-confirm" class="hidden space-y-4">
                     <h2 class="text-xl font-bold text-brand-blue mb-4 border-b pb-2">請確認您的報名資料</h2>
                     <div class="bg-gray-50 p-5 rounded-lg space-y-3 text-sm border border-gray-200">
@@ -350,7 +368,7 @@
                 }
             });
 
-            // --- 1. 頁面載入時：靜默初始化 LIFF ---
+            // --- 1. 靜默初始化 LIFF ---
             try {
                 await liff.init({ liffId: MY_LIFF_ID });
                 if (liff.isLoggedIn()) {
@@ -369,7 +387,7 @@
                 console.warn("LIFF 背景初始化提示:", err.message);
             }
 
-            // --- 2. 授權頁面切換邏輯 ---
+            // --- 2. 授權頁面切換 ---
             agreeCheckbox.addEventListener('change', function() {
                 if (this.checked) {
                     nextStepBtn.disabled = false;
@@ -396,11 +414,11 @@
                 }
             });
 
-            // --- 3. 攔截表單送出，進入「二次確認畫面」並執行嚴格驗證 ---
+            // --- 3. 表單送出與嚴格格式驗證 ---
             form.addEventListener('submit', (e) => {
                 e.preventDefault(); 
                 
-                // 1. 取得輸入值並將全形數字轉為半形、移除空白與連字號
+                // 全形轉半形與去除空格、連字號
                 let rawPhone = document.getElementById('phone').value.trim();
                 rawPhone = rawPhone.replace(/[\uff10-\uff19]/g, function(ch) {
                     return String.fromCharCode(ch.charCodeAt(0) - 0xfee0);
@@ -421,7 +439,6 @@
                     date: document.getElementById('date').value
                 };
 
-                // 嚴格格式驗證
                 if (!/^[\u4E00-\u9FA5]+$/.test(data.name)) return alert("【格式錯誤】姓名只能輸入「純中文」，不可包含英文、數字或空白。");
                 if (!/^09\d{8}$/.test(data.phone)) return alert("【格式錯誤】手機號碼必須為剛好 10 碼數字且為 09 開頭 (例如: 0912345678)。");
                 if (!data.email.includes('@')) return alert("【格式錯誤】電子信箱必須包含 @ 符號。");
@@ -430,7 +447,6 @@
 
                 finalDataToSubmit = data;
 
-                // 填入確認畫面
                 document.getElementById('confirm-company').textContent = data.company || "(未填寫)";
                 document.getElementById('confirm-unitCode').textContent = data.unitCode || "(未填寫)";
                 document.getElementById('confirm-unitName').textContent = data.unitName || "(未填寫)";
@@ -446,13 +462,13 @@
                 stepConfirm.classList.remove('hidden');
             });
 
-            // --- 4. 返回修改按鈕 ---
+            // --- 4. 返回修改 ---
             backToEditBtn.onclick = () => {
                 stepConfirm.classList.add('hidden');
                 form.classList.remove('hidden');
             };
 
-            // --- 5. 最終確認送出 (防重複點擊遮罩) ---
+            // --- 5. 最終確認送出 ---
             finalSubmitBtn.onclick = async () => {
                 finalSubmitBtn.disabled = true;
                 backToEditBtn.disabled = true; 
