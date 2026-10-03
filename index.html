@@ -146,9 +146,9 @@
                         <label class="block text-sm font-bold text-brand-blue mb-1">上課區域 <span class="text-red-500">*</span></label>
                         <select id="region" required class="w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-gold mb-4 text-gray-700 font-bold">
                             <option value="">請選擇上課區域</option>
-                            <option value="台北">台北</option>
-                            <option value="台中">台中</option>
-                            <option value="高雄">高雄</option>
+                            <option value="台北_台北市中山區松江路131號2樓之4">台北</option>
+                            <option value="台中_台中市西區台灣大道二段2號13樓之1">台中</option>
+                            <option value="高雄_高雄市苓雅區中正二路175號13樓之3">高雄</option>
                         </select>
 
                         <label class="block text-sm font-bold text-brand-blue mb-1">上課日期 <span class="text-red-500">*</span></label>
@@ -225,9 +225,9 @@
             const regionSelect = document.getElementById('region');
             const dateSelect = document.getElementById('date');
             const dateOptions = {
-                '台北': ['2026/10/13(二)', '2026/11/03(二)', '2026/12/01(二)'],
-                '台中': ['2026/11/05(四)', '2026/12/03(四)'],
-                '高雄': ['2026/10/20(二)', '2026/11/12(四)', '2026/12/08(二)']
+                '台北': ['2026/10/13(二)', '2026/12/01(二)'],
+                '台中': ['2026/11/05(四)'],
+                '高雄': ['2026/10/20(二)', '2026/12/08(二)']
             };
             regionSelect.addEventListener('change', (e) => {
                 const region = e.target.value;
